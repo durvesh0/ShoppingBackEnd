@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.stereotype.Component;
 
@@ -13,25 +14,17 @@ import org.springframework.stereotype.Component;
 public class Category {
 	
 	@Id
+	@NotNull
 	@Column
 	private String id;
 	
+	@NotNull
 	@Column(name="name")
 	private String name;
 	
+	@NotNull
 	@Column(name="desc")
 	private String desc;
-	/*private Set<Product> products;
-
-	@OneToMany(mappedBy="category",fetch = FetchType.EAGER)
-	public Set<Product> getProducts()
-	{
-		return products;
-	}
-	
-	public void setProducts(Set<Product> products) {
-		this.products = products;
-	}*/
 
 	public String getId() {
 		return id;

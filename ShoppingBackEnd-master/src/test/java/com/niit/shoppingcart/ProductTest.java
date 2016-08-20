@@ -21,7 +21,7 @@ public class ProductTest {
 		
 		product.setId("PRD05");
 		product.setName("PRDName5");
-		product.setPrice("10000");
+		product.setPrice(10000);
 		product.setCategory_id("abcd,");
 		product.setSupplier_id("sup03");
 		System.out.println("Hi");

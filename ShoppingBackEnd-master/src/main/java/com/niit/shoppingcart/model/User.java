@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.stereotype.Component;
 
@@ -12,16 +13,27 @@ import org.springframework.stereotype.Component;
 @Component
 public class User {
 	@Id
+	@NotNull
 	@Column(name="id")
 	private String id;
+	
+	@NotNull
 	@Column(name="name")
 	private String name;
+	
+	@NotNull
 	@Column(name="add")
 	private String add;
+	
+	@NotNull
 	@Column(name="mob")
 	private String mob;
+	
+	@NotNull
 	@Column(name="email")
 	private String email;
+	
+	@NotNull
 	@Column(name="password")
 	private String password;
 	

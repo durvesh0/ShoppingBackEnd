@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.stereotype.Component;
 
@@ -13,14 +14,18 @@ import org.springframework.stereotype.Component;
 public class Product {
 	
 	@Id
+	@NotNull
 	@Column
 	private String id;
 	
+	@NotNull
 	@Column(name="name")
 	private String name;
 	
+	@NotNull
 	@Column(name="price")
-	private String price;
+	private int price;
+	
 	@Column
 	private String category_id;
 	
@@ -55,51 +60,13 @@ public class Product {
 		this.name = name;
 	}
 	
-	public String getPrice() {
+	public int getPrice() {
 		return price;
 	}
 	
-	public void setPrice(String price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 	
-	/*public String getCategory_id() {
-	return category_id;
-}
-public void setCategory_id(String category_id) {
-	this.category_id = category_id;
-}
-*/
-
-/*public String getSupplier_id() {
-	return supplier_id;
-}
-public void setSupplier_id(String supplier_id) {
-	this.supplier_id = supplier_id;
-}*/
-
-/*@ManyToOne
-@JoinColumn(name="category_id", nullable = false, updatable = false, insertable = false)
-	private Category category;
-
-public Category getCategory() {
-	return category;
-}
-public void setCategory(Category category) {
-	this.category = category;
-}*/
-
-/*@ManyToOne
-@JoinColumn(name="supplier_id",nullable = false, updatable = false, insertable = false)
-private Supplier supplier;*/
-
-
-/*@ManyToOne
-@JoinColumn(name="category_id", updatable = false, insertable = false)
-private Category category;
-
-@ManyToOne
-@JoinColumn(name="supplier_id", updatable = false, insertable = false)
-private Supplier supplier;*/
 	
 }
