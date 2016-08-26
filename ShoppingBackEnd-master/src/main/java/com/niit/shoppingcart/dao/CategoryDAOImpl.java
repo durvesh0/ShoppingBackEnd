@@ -1,5 +1,8 @@
 package com.niit.shoppingcart.dao;
 
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -14,6 +17,11 @@ import com.niit.shoppingcart.model.Category;
 @Repository("categoryDAO")
 
 public class CategoryDAOImpl implements CategoryDAO {
+	
+	private static final Logger logger = 
+			LoggerFactory.getLogger(CategoryDAOImpl.class);
+	
+	
 
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -27,6 +35,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 		
 		System.out.println("hiii");
 		
+		logger.debug("calling list");
 		sessionFactory.getCurrentSession().saveOrUpdate(category);
 
 	}
@@ -42,16 +51,19 @@ public class CategoryDAOImpl implements CategoryDAO {
 
 	@Transactional
 	public Category get(String id) {
+		logger.debug("calling get");
+		
 		String hql = "from Category where id=" + "'" + id + "'";
 		// from category where id = '101'
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
-
+		logger.debug("hql:" + hql);
 		@SuppressWarnings("unchecked")
 		List<Category> listCategory = (List<Category>) query.list();
 
 		if (listCategory != null && !listCategory.isEmpty()) {
 			return listCategory.get(0);
 		}
+		logger.debug("End get");
 		return null;
 	}
 

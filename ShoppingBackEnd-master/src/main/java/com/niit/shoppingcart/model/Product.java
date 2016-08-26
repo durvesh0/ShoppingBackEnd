@@ -1,14 +1,12 @@
 package com.niit.shoppingcart.model;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.stereotype.Component;
 
-@Entity
 @Table(name = "PRODUCT")
 @Component
 public class Product {
@@ -32,6 +30,25 @@ public class Product {
 	@Column
 	private String supplier_id;
 	
+	private String fpath;
+	
+	
+	public String getFpath() {
+		return fpath;
+	}
+	public void setFpath(String fpath) {
+		this.fpath = fpath;
+	}
+	
+	
+	/*transient private MultipartFile file1;
+	
+	public MultipartFile getFile1() {
+		return file1;
+	}
+	public void setFile1(MultipartFile file1) {
+		this.file1 = file1;
+	}*/
 	
 	public String getCategory_id() {
 		return category_id;
@@ -67,6 +84,40 @@ public class Product {
 	public void setPrice(int price) {
 		this.price = price;
 	}
+	
+	
+	/*public String getFilePath(String path1,String contextpath)
+	{	
+		String fileName = null;
+		if (!file1.isEmpty()) 
+		{
+	try
+	        {       	
+		
+	fileName = file1.getOriginalFilename();
+	byte[] bytes = file1.getBytes();
+		String npath=path1+"\\resources\\images\\"+ fileName;
+	
+					BufferedOutputStream buffStream = 
+	new BufferedOutputStream(new FileOutputStream(new java.io.File(npath)));
+	buffStream.write(bytes);
+	buffStream.close();
+	           String dbfilename=contextpath+"/resources/images/"+fileName;
+	
+	this.setFpath(dbfilename);
+	return dbfilename;
+	        }
+	catch (Exception e) 
+	        {
+	return"You failed to upload " + fileName + ": " + e.getMessage();
+	        }
+	    } 
+		else
+		{
+			return"Unable to upload. File is empty.";
+		}
+	}	
+*/
 	
 	
 }

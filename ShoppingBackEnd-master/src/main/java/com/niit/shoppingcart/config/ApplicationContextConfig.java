@@ -53,7 +53,7 @@ public class ApplicationContextConfig {
 		Properties properties = new Properties();		
 		properties.put("hibernate.show_sql", "true");
 		properties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
-		//mapping class=("com.niit.shoppingcart.model.Category");
+		
 		return properties;
 	}
 

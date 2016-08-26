@@ -6,6 +6,7 @@ com\niit\shoppingcart\config\ApplicationContextConfig.class
 com\niit\shoppingcart\dao\ProductDAO.class
 com\niit\shoppingcart\model\Customer.class
 com\niit\shoppingcart\dao\ProductDAOImpl.class
+com\niit\shoppingcart\model\FileUpload.class
 com\niit\shoppingcart\dao\CategoryDAO.class
 com\niit\shoppingcart\App.class
 com\niit\shoppingcart\dao\SupplierDAOImpl.class
